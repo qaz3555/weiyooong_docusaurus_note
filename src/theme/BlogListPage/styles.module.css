@@ -1,0 +1,14 @@
+.emptyState {
+  padding: 3rem 0 6rem;
+}
+
+.emptyState h1 {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  letter-spacing: -0.05em;
+  margin-bottom: 1rem;
+}
+
+.emptyState p {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.1rem;
+}
