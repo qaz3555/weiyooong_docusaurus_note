@@ -1,23 +1,69 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+.home {
+  align-items: center;
+  display: flex;
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  padding: 4rem 1.5rem 7rem;
+}
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.content {
+  margin: 0 auto;
+  max-width: 44rem;
+  width: 100%;
+}
+
+.title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  margin: 0 0 3rem;
+}
+
+.entries {
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.entry {
+  align-items: center;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-font-color-base);
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 0.25rem;
+  text-decoration: none;
+  transition:
+    color 150ms ease,
+    padding 150ms ease;
+}
+
+.entry:hover {
+  color: var(--ifm-color-primary);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  text-decoration: none;
+}
+
+.entry strong,
+.entry small {
+  display: block;
+}
+
+.entry strong {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.entry small {
+  color: var(--ifm-color-emphasis-700);
+  margin-top: 0.25rem;
+}
+
+.entry > span:last-child {
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+  .home {
+    min-height: calc(100vh - var(--ifm-navbar-height));
+    padding-bottom: 5rem;
   }
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

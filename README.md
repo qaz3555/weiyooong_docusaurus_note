@@ -1,41 +1,34 @@
-# Website
+# Weiyooong
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Personal notes and blogs built with Docusaurus.
 
-## Installation
-
-```bash
-yarn
-```
-
-## Local Development
+## Local development
 
 ```bash
-yarn start
+npm ci
+npm run start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+The development server runs at `http://localhost:3000`.
 
-## Build
+## Validation
 
 ```bash
-yarn build
+npm run typecheck
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+The production site is generated in `build/`.
 
 ## Deployment
 
-Using SSH:
+GitHub Actions validates pull requests targeting `develop` or `main`.
 
-```bash
-USE_SSH=true yarn deploy
-```
+- Pushes to `develop` deploy a Cloudflare Pages preview.
+- Pushes to `main` deploy the production branch.
+- Publish changes through a `develop` → `main` pull request.
 
-Not using SSH:
+The repository must define:
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+- Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
+- Variable: `CLOUDFLARE_PAGES_PROJECT_NAME`
