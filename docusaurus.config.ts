@@ -1,11 +1,13 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Weiyooong',
+  title: 'Weiyooong\'s Notes',
   tagline: 'Notes and blogs',
   favicon: 'img/favicon.ico',
 
@@ -45,6 +47,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
           editUrl:
             'https://github.com/qaz3555/weiyooong_docusaurus_note/edit/develop/',
         },
@@ -52,6 +56,8 @@ const config: Config = {
           blogTitle: 'Blogs',
           blogDescription: 'Fragmented thoughts and occasional writing.',
           showReadingTime: true,
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
@@ -70,6 +76,13 @@ const config: Config = {
   ],
 
   plugins: [
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-PB47NHWXCQ',
+        anonymizeIP: true,
+      },
+    ],
     [
       '@docusaurus/plugin-ideal-image',
       {
